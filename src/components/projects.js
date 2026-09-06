@@ -1,3 +1,5 @@
+import { GCS_ASSETS, RIFTBOUND_ASSETS } from "../data/assets.js";
+
 function previewLabel(kind) {
   if (kind === "gcs") return "GCS preview asset";
   if (kind === "riftbound") return "Riftbound preview asset";
@@ -5,8 +7,13 @@ function previewLabel(kind) {
 }
 
 export function previewMarkup(kind, tone = "mist") {
-  const extra = kind === "gcs" ? '<span class="preview-ghost mobile"></span>' : '<span class="preview-ghost detail"></span>';
-  return `<div class="project-canvas ${tone}"><span class="preview-ghost"></span>${extra}<span class="placeholder-copy">${previewLabel(kind)}</span></div>`;
+  if (kind === "gcs") {
+    return `<div class="project-canvas ${tone}"><img class="preview-image preview-image-main" src="${GCS_ASSETS.hero}" alt="GCS smart mosquito control drone interface" /><img class="preview-image preview-image-support mobile" src="${GCS_ASSETS.mobileDashboard}" alt="GCS mobile dashboard interface" /></div>`;
+  }
+  if (kind === "riftbound") {
+    return `<div class="project-canvas ${tone}"><img class="preview-image preview-image-main" src="${RIFTBOUND_ASSETS.hero}" alt="Riftbound pixel RPG interface concept" /><img class="preview-image preview-image-support detail" src="${RIFTBOUND_ASSETS.heroes}" alt="Riftbound character interface" /></div>`;
+  }
+  return `<div class="project-canvas ${tone}"><span class="preview-ghost"></span><span class="preview-ghost detail"></span><span class="placeholder-copy">${previewLabel(kind)}</span></div>`;
 }
 
 export function featuredCard(project) {

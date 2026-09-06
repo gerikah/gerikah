@@ -1,9 +1,13 @@
 import { ASSETS } from "../data/assets.js";
 import { projects } from "../data/projects.js";
-import { footerMarkup, navMarkup } from "../components/site.js";
+import { CONTACT_LINKS, footerMarkup, navMarkup } from "../components/site.js";
 import { featuredCard } from "../components/projects.js";
 
 export function homePage() {
+  const emailLink = CONTACT_LINKS.email ? `<a class="contact-item primary" href="mailto:${CONTACT_LINKS.email}">Email me ↗</a>` : "";
+  const linkedinLink = CONTACT_LINKS.linkedin ? `<a class="contact-item" href="${CONTACT_LINKS.linkedin}">LinkedIn ↗</a>` : "";
+  const githubLink = CONTACT_LINKS.github ? `<a class="contact-item" href="${CONTACT_LINKS.github}">GitHub ↗</a>` : "";
+  const resumeLink = CONTACT_LINKS.resume ? `<a class="contact-item" href="${CONTACT_LINKS.resume}" download>Download résumé ↗</a>` : "";
   return `${navMarkup()}
   <main class="page">
     <section class="hero" aria-labelledby="hero-title">
@@ -22,13 +26,13 @@ export function homePage() {
     </section>
     <section id="about" class="section" aria-labelledby="about-title">
       <div class="section-intro"><div><p class="kicker">02 / About</p><h2 id="about-title" class="section-heading">A creative eye.<br />A technical foundation.</h2></div></div>
-      <div class="about-layout"><p class="about-lede">I’m Gerikah, a UI/UX designer with a Computer Engineering background. I enjoy making complicated workflows easier to understand and giving useful interfaces a little personality.</p><div class="about-info">
-        <div class="info-block"><h3 class="info-heading"><span>Experience</span><span>Selected background</span></h3><div class="info-content"><div class="experience-row"><div><h4>Freelance role</h4><p>Fiverr · [Add verified responsibilities and deliverables]</p></div><span class="date">[Dates]</span></div></div></div>
-        <div class="info-block"><h3 class="info-heading"><span>Education</span><span>Academic foundation</span></h3><div class="info-content education"><h4>Polytechnic University of the Philippines</h4><p>[Exact Computer Engineering degree title] · [Graduation year or confirmed graduation status]</p></div></div>
-        <div class="info-block"><h3 class="info-heading"><span>Tools &amp; technologies</span><span>Personal stack</span></h3><div class="info-content"><div class="tools"><span class="tool">[Design &amp; prototyping tool]</span><span class="tool">[Development tool]</span><span class="tool">[Workflow &amp; collaboration tool]</span></div></div></div>
-        <div class="resume-callout"><span class="text-link">Download résumé ↗</span></div>
+      <div class="about-layout"><div class="about-intro"><p class="about-lede">I’m Gerikah Alday, a UI/UX designer with a Computer Engineering background. I enjoy turning complex workflows into clear interfaces, from drone-control dashboards to pixel game experiences.</p><p class="about-lede">My experience also includes full-stack web and mobile development, which helps me think about how a design will work beyond the screen.</p></div><div class="about-info">
+        <div class="info-block"><h3 class="info-heading"><span>Experience</span></h3><div class="info-content"><div class="experience-row"><div><h4>Freelance Technical Documentation Assistant</h4><p>Fiverr · Dec 30 2022 - January 2026</p><p>Delivered flowcharts, pseudocode, wireframes, and UI/UX documentation for 3+ years of client projects across academic and software development contexts.</p><ul class="experience-list"><li>Assisted clients with logic design, system analysis, and front-end structure planning for web-based applications.</li><li>Maintained consistent positive client feedback, demonstrating ability to translate technical requirements into clear written and visual documentation.</li></ul><a class="text-link related-work-link" href="/works">View related work ↗</a></div></div></div></div>
+        <div class="info-block"><h3 class="info-heading"><span>Education</span></h3><div class="info-content education"><h4>Polytechnic University of the Philippines</h4><p>Computer Engineering</p><p>Expected graduation: September 2026</p></div></div>
+        <div class="info-block"><h3 class="info-heading"><span>Tools &amp; technologies</span></h3><div class="info-content tool-groups"><div><h4>Design &amp; prototyping</h4><div class="tools"><span class="tool">Figma</span><span class="tool">Framer</span></div></div><div><h4>Development</h4><div class="tools"><span class="tool">React</span><span class="tool">TypeScript</span><span class="tool">Node.js</span><span class="tool">Supabase</span></div></div><div><h4>Workflow &amp; version control</h4><div class="tools"><span class="tool">VS Code</span><span class="tool">GitHub</span></div></div></div></div>
+        ${resumeLink ? `<div class="resume-callout">${resumeLink}</div>` : ""}
       </div></div>
     </section>
-    <section id="contact" class="section" aria-labelledby="contact-title"><div class="contact"><p class="kicker">03 / Contact</p><h2 id="contact-title" class="section-heading">Let’s make something<br />worth using.</h2><p class="lede">Have a role or project in mind? I’d love to hear about it.</p><div class="contact-details"><span class="contact-item placeholder">[Email address]</span><span class="contact-item placeholder">[LinkedIn URL]</span><span class="contact-item placeholder">[GitHub URL]</span><span class="contact-item placeholder">[Résumé file]</span></div></div></section>
+    <section id="contact" class="section" aria-labelledby="contact-title"><div class="contact"><p class="kicker">03 / Contact</p><h2 id="contact-title" class="section-heading">Let’s make something<br />worth using.</h2><p class="lede">I’m open to UI/UX design opportunities and freelance projects. If you’re looking for someone who enjoys both the creative and technical sides of digital work, I’d love to connect.</p><div class="contact-details">${emailLink}${linkedinLink}${githubLink}${resumeLink}</div><p class="contact-location">Based in Manila, Philippines.</p></div></section>
   </main>${footerMarkup()}`;
 }
