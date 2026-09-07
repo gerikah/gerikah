@@ -1,4 +1,4 @@
-import { GCS_ASSETS, RIFTBOUND_ASSETS } from "../data/assets.js";
+import { FLOWCHART_ASSETS, FLOWCHART_HERO, GCS_ASSETS, RIFTBOUND_ASSETS } from "../data/assets.js";
 
 function previewLabel(kind) {
   if (kind === "gcs") return "GCS preview asset";
@@ -13,6 +13,9 @@ export function previewMarkup(kind, tone = "mist") {
   if (kind === "riftbound") {
     return `<div class="project-canvas ${tone}"><img class="preview-image preview-image-main" src="${RIFTBOUND_ASSETS.hero}" alt="Riftbound pixel RPG interface concept" /><img class="preview-image preview-image-support detail" src="${RIFTBOUND_ASSETS.heroes}" alt="Riftbound character interface" /></div>`;
   }
+  if (kind === "flowcharts-process-mapping") {
+    return `<div class="project-canvas ${tone} flowchart-preview"><img class="preview-image preview-image-main" src="${FLOWCHART_HERO}" alt="Fiverr flowchart project collection preview" /><img class="preview-image preview-image-support flowchart-preview-two" src="${FLOWCHART_ASSETS[6].src}" alt="DropSafe process map preview" /><img class="preview-image preview-image-support flowchart-preview-three" src="${FLOWCHART_ASSETS[7].src}" alt="Study Buddies flowchart preview" /></div>`;
+  }
   return `<div class="project-canvas ${tone}"><span class="preview-ghost"></span><span class="preview-ghost detail"></span><span class="placeholder-copy">${previewLabel(kind)}</span></div>`;
 }
 
@@ -24,5 +27,7 @@ export function featuredCard(project) {
 }
 
 export function standardCard(project) {
-  return `<a class="project-card standard-card" href="/works/${project.slug}">${previewMarkup(project.slug, project.tone)}<div class="project-meta"><p class="kicker">${project.category}</p><h3>${project.title} — ${project.fullTitle}</h3><p>${project.description}</p><div class="project-details"><span>Role: ${project.role}</span><span>Tools: ${project.tools}</span><span>Status: ${project.status}</span></div><span class="text-link">${project.slug === "off-the-rack" ? "View progress ↗" : "View project ↗"}</span></div></a>`;
+  const linkLabel = project.slug === "off-the-rack" ? "View progress ↗" : project.slug === "flowcharts-process-mapping" ? "View collection ↗" : "View project ↗";
+  const cardTitle = project.slug === "flowcharts-process-mapping" ? project.title : `${project.title} — ${project.fullTitle}`;
+  return `<a class="project-card standard-card" href="/works/${project.slug}">${previewMarkup(project.slug, project.tone)}<div class="project-meta"><p class="kicker">${project.category}</p><h3>${cardTitle}</h3><p>${project.description}</p><div class="project-details"><span>Role: ${project.role}</span><span>Tools: ${project.tools}</span><span>Status: ${project.status}</span></div><span class="text-link">${linkLabel}</span></div></a>`;
 }

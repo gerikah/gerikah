@@ -38,4 +38,17 @@ export const projects = {
     next: "gcs",
     nextLabel: "GCS",
   },
+  "flowcharts-process-mapping": {
+    slug: "flowcharts-process-mapping",
+    title: "Flowcharts & Process Mapping",
+    fullTitle: "Freelance workflow design collection",
+    category: "FREELANCE · WORKFLOW DESIGN",
+    description: "A collection of flowchart projects created through Fiverr, turning processes and requirements into clear visual documentation.",
+    role: "Freelance Technical Documentation Assistant",
+    tools: "Lucidchart",
+    status: "Collection of freelance projects",
+    tone: "sage",
+    next: "gcs",
+    nextLabel: "GCS",
+  },
 };

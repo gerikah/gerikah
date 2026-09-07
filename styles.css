@@ -87,6 +87,10 @@ img { display: block; max-width: 100%; }
 .preview-image-support { z-index: 1; }
 .preview-image-support.mobile { right: 9%; bottom: 10%; width: 18%; max-height: 72%; border: 4px solid var(--paper); background: var(--paper); box-shadow: 0 0 0 1px var(--line); }
 .preview-image-support.detail { right: 9%; bottom: 11%; width: 28%; max-height: 48%; border: 4px solid var(--paper); background: var(--paper); box-shadow: 0 0 0 1px var(--line); transform: rotate(2deg); }
+.flowchart-preview .preview-image-main { left: 8%; width: 60%; height: 78%; object-fit: cover; object-position: center top; }
+.flowchart-preview-two, .flowchart-preview-three { height: 48%; object-fit: cover; background: var(--paper); box-shadow: 0 0 0 1px var(--line); }
+.flowchart-preview-two { right: 8%; bottom: 39%; width: 27%; object-position: center top; }
+.flowchart-preview-three { right: 8%; bottom: 8%; width: 27%; object-position: center top; transform: rotate(-2deg); }
 .project-card:hover .preview-image-main, .project-card:focus-visible .preview-image-main { transform: scale(1.02); }
 .project-card:hover .preview-image-support.mobile, .project-card:focus-visible .preview-image-support.mobile { transform: translateY(-6px); }
 .project-card:hover .preview-image-support.detail, .project-card:focus-visible .preview-image-support.detail { transform: rotate(2deg) translateY(-6px); }
@@ -108,6 +112,12 @@ img { display: block; max-width: 100%; }
 .about-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 80px; }
 .about-intro { display: grid; align-content: start; gap: 22px; }
 .about-lede { margin: 0; font-size: 22px; line-height: 1.45; letter-spacing: -.02em; }
+.about-section-lede { margin: 0 0 8px; }
+.about-intro > .kicker { padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.about-principles { display: grid; gap: 0; margin-top: 10px; border-top: 1px solid var(--line); }
+.about-principles div { display: grid; grid-template-columns: 34px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.about-principles p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.about-principles .mono-label { padding-top: 2px; color: var(--deep-sage); }
 .info-block { padding: 22px 0; border-top: 1px solid var(--line); }
 .info-block:last-child { border-bottom: 1px solid var(--line); }
 .info-heading { margin: 0; font-size: 13px; color: var(--deep-sage); }
@@ -168,6 +178,7 @@ img { display: block; max-width: 100%; }
 .gcs-gallery-split { grid-template-columns: minmax(0, 1.25fr) minmax(180px, .75fr); align-items: end; }
 .gcs-gallery-web { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .gcs-gallery-mobile { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; }
+.gcs-gallery-flowcharts { grid-template-columns: 1fr; }
 .gcs-screen { min-width: 0; margin: 0; }
 .gcs-screen img { display: block; width: 100%; height: auto; background: var(--mist); border: 1px solid var(--line); }
 .gcs-screen figcaption { margin-top: 9px; color: var(--muted); font-family: "DM Mono", monospace; font-size: 10px; line-height: 1.4; }
@@ -186,6 +197,27 @@ img { display: block; max-width: 100%; }
 .riftbound-image-frame { min-width: 0; }
 .riftbound-decision { align-items: center; }
 .asset-placeholder { min-height: 220px; display: flex; align-items: center; justify-content: center; padding: 30px; text-align: center; border: 1px dashed var(--line); background: var(--mist); color: var(--muted); }
+.flowchart-cover-image { width: min(86%, 980px); margin: 44px auto; }
+.flowchart-cover-image img { width: 100%; height: 330px; object-fit: cover; object-position: center top; }
+.flowchart-cover-image figcaption, .diagram-frame figcaption { margin-top: 9px; color: var(--muted); font-family: "DM Mono", monospace; font-size: 10px; line-height: 1.4; }
+.collection-list { display: grid; gap: 70px; }
+.collection-entry { padding-top: 30px; border-top: 1px solid var(--line); animation: reveal .6s ease both; }
+.collection-entry:first-child { padding-top: 0; border-top: 0; }
+.collection-entry-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; }
+.collection-entry h2 { margin: 0; font-size: clamp(24px, 3vw, 36px); letter-spacing: -.035em; }
+.collection-context { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 24px 0 0; }
+.collection-context p, .diagram-annotation p { margin: 8px 0 0; color: var(--muted); line-height: 1.65; }
+.diagram-set { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.single-diagram .diagram-set { grid-template-columns: 1fr; }
+.diagram-frame { margin: 30px 0 0; padding: clamp(12px, 2vw, 24px); background: var(--sage); }
+.single-diagram .diagram-frame { padding: 20px; }
+.diagram-frame a { display: block; background: var(--paper); }
+.diagram-image { width: 100%; height: auto; }
+.diagram-annotation { max-width: 680px; margin-top: 24px; }
+.editable-note { font-family: "DM Mono", monospace; font-size: 12px; }
+.collection-entry:nth-child(2) { animation-delay: .04s; }
+.collection-entry:nth-child(3) { animation-delay: .08s; }
+.collection-entry:nth-child(4) { animation-delay: .12s; }
 .design-decision { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 24px 0; border-top: 1px solid var(--line); }
 .design-decision:first-child { border-top: 0; padding-top: 0; }
 .design-decision h3 { margin: 0 0 8px; font-size: 17px; }
@@ -219,6 +251,7 @@ img { display: block; max-width: 100%; }
   .section-intro .lede { margin-top: 18px; }
   .feature-grid, .works-grid { grid-template-columns: 1fr; }
   .about-layout { gap: 40px; }
+  .about-section-lede { margin-top: 18px; }
   .info-heading { display: block; }
   .contact { padding: 40px 24px; }
   .page { padding-top: 32px; }
@@ -227,6 +260,7 @@ img { display: block; max-width: 100%; }
   .gcs-cover-image { width: 94%; margin: 26px auto; }
   .gcs-gallery-split, .gcs-gallery-web { grid-template-columns: 1fr; }
   .gcs-gallery-mobile { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .diagram-set { grid-template-columns: 1fr; }
   .riftbound-cover-image { width: 94%; margin: 24px auto; }
   .riftbound-gallery-map, .riftbound-gallery-interface { grid-template-columns: 1fr; }
   .case-overview { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }

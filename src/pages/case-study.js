@@ -3,6 +3,7 @@ import { footerMarkup, navMarkup } from "../components/site.js";
 import { previewMarkup } from "../components/projects.js";
 import { gcsCaseSections, gcsImage } from "./gcs-case-study.js";
 import { riftboundCaseSections, riftboundCover } from "./riftbound-case-study.js";
+import { flowchartsCaseSections, flowchartsCover } from "./flowcharts-case-study.js";
 
 function genericCaseSections(project, isOffRack) {
   return `<div class="case-body">
@@ -18,13 +19,14 @@ export function casePage(project) {
   const isOffRack = project.slug === "off-the-rack";
   const isGcs = project.slug === "gcs";
   const isRiftbound = project.slug === "riftbound";
-  const caseContent = isGcs ? gcsCaseSections() : isRiftbound ? riftboundCaseSections() : genericCaseSections(project, isOffRack);
+  const isFlowcharts = project.slug === "flowcharts-process-mapping";
+  const caseContent = isGcs ? gcsCaseSections() : isRiftbound ? riftboundCaseSections() : isFlowcharts ? flowchartsCaseSections() : genericCaseSections(project, isOffRack);
   const cover = isGcs
     ? gcsImage(GCS_ASSETS.hero, "GCS smart mosquito control drone hero image", "gcs-cover-image")
     : isOffRack
       ? '<div class="asset-placeholder">[Add available progress visual: sitemap, workflow, or design exploration]</div>'
-      : riftboundCover();
-  const projectType = isOffRack ? "E-commerce experience" : isGcs ? "Computer Engineering Capstone Project" : "Personal project · Game UI/UX concept";
+      : isFlowcharts ? flowchartsCover() : riftboundCover();
+  const projectType = isOffRack ? "E-commerce experience" : isGcs ? "Computer Engineering Capstone Project" : isFlowcharts ? "Freelance project collection" : "Personal project · Game UI/UX concept";
 
-  return `${navMarkup("works")}<main class="page"><article class="case-study"><header class="case-head"><p class="kicker eyebrow">${project.category}</p><h1 class="display">${project.title}<br /><em>${project.fullTitle}</em></h1><p class="case-summary">${project.description}</p></header><div class="case-cover ${project.tone}">${cover}</div><div class="case-overview"><div><span class="kicker">Role</span><p>${project.role}</p></div><div><span class="kicker">Project type</span><p>${projectType}</p></div><div><span class="kicker">Status</span><p>${project.status}</p></div><div><span class="kicker">Tools &amp; technologies</span><p>${project.tools}</p></div></div>${caseContent}<nav class="case-nav" aria-label="Project navigation"><a class="text-link" href="/works">← All works</a><a class="text-link" href="/works/${project.next}">Next: ${project.nextLabel} ↗</a></nav></article></main>${footerMarkup()}`;
+  return `${navMarkup("works")}<main class="page"><article class="case-study"><header class="case-head"><p class="kicker eyebrow">${project.category}</p><h1 class="display">${project.title}<br /><em>${project.fullTitle}</em></h1><p class="case-summary">${project.description}</p></header><div class="case-cover ${project.tone}">${cover}</div><div class="case-overview"><div><span class="kicker">Role</span><p>${project.role}</p></div><div><span class="kicker">Project type</span><p>${projectType}</p></div><div><span class="kicker">${isFlowcharts ? "Collection status" : "Status"}</span><p>${project.status}</p></div><div><span class="kicker">Tools &amp; technologies</span><p>${project.tools}</p></div></div>${caseContent}<nav class="case-nav" aria-label="Project navigation"><a class="text-link" href="/works">← All works</a><a class="text-link" href="/works/${project.next}">Next: ${project.nextLabel} ↗</a></nav></article></main>${footerMarkup()}`;
 }
