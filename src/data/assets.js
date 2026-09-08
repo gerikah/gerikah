@@ -3,6 +3,12 @@ export const ASSETS = {
   logo: "/assets/(LOGO)%20-%20black%20G.png",
 };
 
+export const REAL_ESTATE_ASSETS = {
+  hero: "/assets/projects/REALESTATE%20-%20hero.png",
+  homepageOne: "/assets/projects/REALESTATE%20-%20homepage%20(1).png",
+  homepageTwo: "/assets/projects/REALESTATE%20-%20homepage%20(2).png",
+};
+
 export const GCS_ASSETS = {
   hero: "/assets/projects/GCS%20-%20hero.png",
   flowchartOne: "/assets/projects/GCS%20-%20flowchart1.jpg",

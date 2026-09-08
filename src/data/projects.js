@@ -1,4 +1,19 @@
 export const projects = {
+  "marci-metzger-homes": {
+    slug: "marci-metzger-homes",
+    title: "Marci Metzger Homes",
+    fullTitle: "Homepage Redesign",
+    category: "REAL ESTATE · HOMEPAGE REDESIGN",
+    description: "A homepage redesign for Marci Metzger Homes and The Ridge Realty Group, refreshing the existing content with an editorial layout, prominent property photography, and a white-and-earthy palette. The project focuses on a responsive single-page experience—not a full website redesign or live property platform.",
+    role: "Homepage Developer",
+    projectType: "Real Estate Homepage Redesign",
+    tools: "HTML · CSS · JavaScript · Node.js · Vercel",
+    status: "Completed",
+    liveUrl: "https://marci-metzger-homes-psi.vercel.app/",
+    tone: "sage",
+    next: "gcs",
+    nextLabel: "GCS",
+  },
   gcs: {
     slug: "gcs",
     title: "GCS",

@@ -162,6 +162,11 @@ img { display: block; max-width: 100%; }
 .case-summary { max-width: 680px; margin: 0; font-size: 19px; color: var(--muted); line-height: 1.6; }
 .case-cover { position: relative; display: flex; align-items: center; justify-content: center; min-height: 420px; margin-top: 58px; background: var(--mist); }
 .case-cover.sage { background: var(--sage); }
+.real-estate-cover { display: block; width: 94%; height: auto; max-height: 620px; object-fit: contain; margin: 30px auto; }
+.real-estate-gallery { display: grid; gap: 28px; min-width: 0; }
+.real-estate-gallery figure { margin: 0; min-width: 0; }
+.real-estate-gallery img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.real-estate-gallery figcaption { margin-top: 10px; font-size: 12px; color: var(--muted); }
 .case-cover .preview-ghost { width: 52%; }
 .gcs-cover-image { width: min(90%, 1100px); margin: 42px auto; }
 .gcs-cover-image img { width: 100%; max-height: 560px; object-fit: contain; }
