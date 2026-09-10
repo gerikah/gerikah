@@ -3,6 +3,37 @@ export const ASSETS = {
   logo: "/assets/(LOGO)%20-%20black%20G.png",
 };
 
+const offRackSnapshot = (file) => `/assets/projects/OFF%20THE%20RACK%20-%20WEBSITE%20SNAPSHOTS/${encodeURIComponent(file)}.png`;
+const offRackWireframe = (file) => `/assets/projects/Off%20the%20Rack%20-%20Initial%20Layout%20Wireframe/${encodeURIComponent(file)}.png`;
+
+export const OFF_THE_RACK_ASSETS = {
+  hero: offRackSnapshot("OFF THE RACK THUMBNAIL"),
+  sitemap: "/assets/projects/OFF%20THE%20RACK%20sitemap.png",
+  screens: {
+    homepage: offRackSnapshot("HOMEPAGE HERO"),
+    newArrivals: offRackSnapshot("HOMEPAGE NEW ARRIVALS"),
+    homepageAbout: offRackSnapshot("HOMEPAGE ABOUT"),
+    featured: offRackSnapshot("FEATURED"),
+    about: offRackSnapshot("ABOUT PAGE"),
+    process: offRackSnapshot("ABOUT PAGE 2"),
+    contact: offRackSnapshot("CONTACT PAGE"),
+    inquiry: offRackSnapshot("INQUIRY PAGE FORM"),
+    footer: offRackSnapshot("FOOTER"),
+    adminDashboard: offRackSnapshot("ADMIN DASHBOARD"),
+    adminCategories: offRackSnapshot("ADMIN CATEGORIES"),
+  },
+  wireframes: {
+    home: offRackWireframe("HOME"),
+    shop: offRackWireframe("SHOP"),
+    product: offRackWireframe("PRODUCT"),
+    inquiry: offRackWireframe("INQUIRY FORM"),
+    adminDashboard: offRackWireframe("ADMIN - DASHBOARD"),
+    adminProducts: offRackWireframe("ADMIN - PRODUCTS"),
+    adminCategories: offRackWireframe("ADMIN - CATEGORIES"),
+    adminInquiries: offRackWireframe("ADMIN - INQUIRIES"),
+  },
+};
+
 export const REAL_ESTATE_ASSETS = {
   hero: "/assets/projects/REALESTATE%20-%20hero.png",
   homepageOne: "/assets/projects/REALESTATE%20-%20homepage%20(1).png",

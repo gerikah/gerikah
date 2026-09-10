@@ -201,6 +201,24 @@ img { display: block; max-width: 100%; }
 .riftbound-screen figcaption { margin-top: 9px; color: var(--muted); font-family: "DM Mono", monospace; font-size: 10px; line-height: 1.4; }
 .riftbound-image-frame { min-width: 0; }
 .riftbound-decision { align-items: center; }
+.off-rack-preview { background: #0c0c0b; }
+.off-rack-preview .preview-image-main { width: 100%; height: 100%; max-height: none; }
+.off-rack-cover { display: block; width: 100%; height: auto; }
+.off-rack-case-body .case-section > div { min-width: 0; }
+.off-rack-case-body h3 { margin: 30px 0 12px; font-size: 17px; }
+.off-rack-case-body h3:first-child { margin-top: 0; }
+.off-rack-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; margin: 28px 0; }
+.off-rack-gallery-wide { grid-template-columns: 1fr; }
+.off-rack-screen { min-width: 0; margin: 0; }
+.off-rack-screen a { display: block; }
+.off-rack-screen img { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: white; }
+.off-rack-screen figcaption { margin-top: 10px; color: var(--muted); font-family: "DM Mono", monospace; font-size: 11px; line-height: 1.5; }
+.off-rack-sitemap { margin: 28px 0 36px; }
+.off-rack-wireframes img { height: 330px; object-fit: contain; }
+.off-rack-case-body .off-rack-journey { padding: 16px 20px; background: var(--mist); color: var(--ink); }
+.off-rack-case-body .off-rack-progress-note { padding: 20px; border-left: 3px solid var(--deep-sage); background: var(--mist); }
+.off-rack-details { margin: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.off-rack-details summary { padding: 18px 0; cursor: pointer; font-size: 14px; }
 .asset-placeholder { min-height: 220px; display: flex; align-items: center; justify-content: center; padding: 30px; text-align: center; border: 1px dashed var(--line); background: var(--mist); color: var(--muted); }
 .flowchart-cover-image { width: min(86%, 980px); margin: 44px auto; }
 .flowchart-cover-image img { width: 100%; height: 330px; object-fit: cover; object-position: center top; }
@@ -268,6 +286,8 @@ img { display: block; max-width: 100%; }
   .diagram-set { grid-template-columns: 1fr; }
   .riftbound-cover-image { width: 94%; margin: 24px auto; }
   .riftbound-gallery-map, .riftbound-gallery-interface { grid-template-columns: 1fr; }
+  .off-rack-gallery { grid-template-columns: 1fr; }
+  .case-cover:has(.off-rack-cover) { min-height: 0; }
   .case-overview { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
   .case-section { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
   .design-decision { grid-template-columns: 1fr; gap: 16px; }

@@ -4,6 +4,7 @@ import { realEstateCaseSections, realEstateCover } from "./real-estate-case-stud
 import { gcsCaseSections, gcsImage } from "./gcs-case-study.js";
 import { riftboundCaseSections, riftboundCover } from "./riftbound-case-study.js";
 import { flowchartsCaseSections, flowchartsCover } from "./flowcharts-case-study.js";
+import { offRackCaseSections, offRackCover } from "./off-the-rack-case-study.js";
 
 function genericCaseSections(project, isOffRack) {
   return `<div class="case-body">
@@ -21,11 +22,11 @@ export function casePage(project) {
   const isGcs = project.slug === "gcs";
   const isRiftbound = project.slug === "riftbound";
   const isFlowcharts = project.slug === "flowcharts-process-mapping";
-  const caseContent = isRealEstate ? realEstateCaseSections() : isGcs ? gcsCaseSections() : isRiftbound ? riftboundCaseSections() : isFlowcharts ? flowchartsCaseSections() : genericCaseSections(project, isOffRack);
+  const caseContent = isRealEstate ? realEstateCaseSections() : isGcs ? gcsCaseSections() : isRiftbound ? riftboundCaseSections() : isFlowcharts ? flowchartsCaseSections() : isOffRack ? offRackCaseSections() : genericCaseSections(project, isOffRack);
   const cover = isRealEstate ? realEstateCover() : isGcs
     ? gcsImage(GCS_ASSETS.hero, "GCS smart mosquito control drone hero image", "gcs-cover-image")
     : isOffRack
-      ? '<div class="asset-placeholder">[Add available progress visual: sitemap, workflow, or design exploration]</div>'
+      ? offRackCover()
       : isFlowcharts ? flowchartsCover() : riftboundCover();
   const projectType = project.projectType || (isOffRack ? "E-commerce experience" : isGcs ? "Computer Engineering Capstone Project" : isFlowcharts ? "Freelance project collection" : "Personal project · Game UI/UX concept");
 

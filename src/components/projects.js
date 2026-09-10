@@ -1,4 +1,4 @@
-import { FLOWCHART_ASSETS, FLOWCHART_HERO, GCS_ASSETS, RIFTBOUND_ASSETS, REAL_ESTATE_ASSETS } from "../data/assets.js";
+import { FLOWCHART_ASSETS, FLOWCHART_HERO, GCS_ASSETS, RIFTBOUND_ASSETS, REAL_ESTATE_ASSETS, OFF_THE_RACK_ASSETS } from "../data/assets.js";
 
 function previewLabel(kind) {
   if (kind === "gcs") return "GCS preview asset";
@@ -7,6 +7,9 @@ function previewLabel(kind) {
 }
 
 export function previewMarkup(kind, tone = "mist") {
+  if (kind === "off-the-rack") {
+    return `<div class="project-canvas ${tone} off-rack-preview"><img class="preview-image preview-image-main" src="${OFF_THE_RACK_ASSETS.hero}" alt="Off the Rack storefront and inquiry interface preview" loading="lazy" /></div>`;
+  }
   if (kind === "marci-metzger-homes") {
     return `<div class="project-canvas ${tone}"><img class="preview-image preview-image-main" src="${REAL_ESTATE_ASSETS.hero}" alt="Marci Metzger Homes homepage redesign" loading="lazy" /></div>`;
   }
