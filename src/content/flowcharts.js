@@ -7,7 +7,7 @@ function diagramMarkup(item) {
 
 function projectMarkup(project, index) {
   const layoutClass = index > 0 ? " single-diagram" : "";
-  return `<article class="collection-entry${layoutClass}"><div class="collection-entry-head"><div><p class="kicker">Project ${String(index + 1).padStart(2, "0")}</p><h2>${project.title}</h2></div><a class="text-link" href="${project.diagrams[0].src}" target="_blank" rel="noopener" aria-label="View ${project.title} diagrams in a new tab">View full diagram ↗</a></div><div class="collection-context"><div><span class="kicker">Context</span><p>${project.context}</p></div><div><span class="kicker">My contribution</span><p>${project.contribution}</p></div></div><div class="diagram-set">${project.diagrams.map(diagramMarkup).join("")}</div><div class="diagram-annotation"><span class="kicker">Design notes</span>${project.notes.map((note) => `<p>${note}</p>`).join("")}</div></article>`;
+  return `<article class="collection-entry${layoutClass}"><div class="collection-entry-head"><div><p class="kicker">Project ${String(index + 1).padStart(2, "0")}</p><h3>${project.title}</h3></div><a class="text-link" href="${project.diagrams[0].src}" target="_blank" rel="noopener" aria-label="View ${project.title} diagrams in a new tab">View full diagram ↗</a></div><div class="collection-context"><div><span class="kicker">Context</span><p>${project.context}</p></div><div><span class="kicker">My contribution</span><p>${project.contribution}</p></div></div><div class="diagram-set">${project.diagrams.map(diagramMarkup).join("")}</div><div class="diagram-annotation"><span class="kicker">Design notes</span>${project.notes.map((note) => `<p>${note}</p>`).join("")}</div></article>`;
 }
 
 export function flowchartsCover() {

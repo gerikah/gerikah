@@ -1,8 +1,20 @@
 {
+  "type": "module",
   "scripts": {
-    "start": "node server.mjs"
+    "start": "node server.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node server.mjs --production",
+    "test": "playwright test"
   },
   "dependencies": {
-    "openai": "^7.10.0"
+    "html-react-parser": "^6.1.7",
+    "motion": "^13.2.0",
+    "openai": "^7.10.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "esbuild": "^0.28.2"
   }
 }
