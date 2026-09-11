@@ -9,7 +9,7 @@ import { aboutSheet, contactSheet } from '../content/profile.js';
 
 const ease = [0.22, 0.68, 0.22, 1];
 const folderIds = new Set(portfolioFolders.map(folder => folder.id));
-const tabSlots = [0, 2, 1, 0, 2, 1, 0];
+const tabSlots = [0, 2, 0.8, 0, 2, 1, 0];
 
 // Server-rendered content stays visible. Only the first client mount plays the intro.
 function useEntrance(delay = 0, distance = 10, background = false) {
@@ -126,10 +126,11 @@ function Folder({ folder, index, open, full, onToggle, onFull, onClose, onKeys, 
   const entrance = useEntrance(0.25 + index * 0.035, 14);
   const duration = reduce ? 0 : 0.38;
   const heightTransition = { duration, ease };
+  const peekImage = folder.kind === 'project' ? folder.previewImages[0].src : folder.kind === 'about' ? ASSETS.logo : null;
   return <motion.article layout={reduce ? false : 'position'}
     className={`folder-sheet folder-${folder.kind}${open ? ' is-open' : ''}`}
     id={folder.id} data-folder={folder.id} data-state={open ? full ? 'full' : 'preview' : 'closed'}
-    style={{ '--tab-slot': tabSlots[index] }} initial={false} animate={entrance}
+    style={{ '--tab-slot': tabSlots[index], zIndex: index + 1 }} initial={false} animate={entrance}
     transition={{ layout: { duration, ease } }}>
     <h2 className="folder-heading">
       <motion.button type="button" className="folder-tab" id={`tab-${folder.id}`}
@@ -143,6 +144,13 @@ function Folder({ folder, index, open, full, onToggle, onFull, onClose, onKeys, 
       </motion.button>
     </h2>
     <div className="folder-surface">
+      <motion.div className="folder-peek" aria-hidden="true" initial={false}
+        animate={{ height: open ? 0 : 'auto', opacity: open ? 0 : 1 }} transition={heightTransition}>
+        <div className="folder-peek-content">
+          {peekImage ? <img src={peekImage} alt="" loading="lazy" decoding="async" />
+            : <span className="contact-peek-type">Let’s make something worth using.</span>}
+        </div>
+      </motion.div>
       <div className="folder-expansion" id={`panel-${folder.id}`} role="region" aria-labelledby={`tab-${folder.id}`} inert={!open} aria-hidden={!open}>
         <AnimatePresence initial={false}>
           {open && <motion.div key="contents" className="folder-clip" initial={reduce ? false : { height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} transition={heightTransition}>
@@ -168,10 +176,6 @@ function Folder({ folder, index, open, full, onToggle, onFull, onClose, onKeys, 
             </motion.div>
           </motion.div>}
         </AnimatePresence>
-      </div>
-      <div className="folder-spine" aria-hidden="true">
-        <span>GA / {folder.number}</span>
-        <span className="spine-category">{folder.category || (folder.kind === 'about' ? 'Profile & approach' : 'Keep in touch')}</span>
       </div>
     </div>
   </motion.article>;

@@ -66,7 +66,8 @@ for (const [width, height] of [[1440, 900], [1366, 768], [768, 1024], [390, 844]
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
     const visible = await page.locator('.folder-tab').evaluateAll(tabs => tabs.filter(tab => tab.getBoundingClientRect().top + 24 <= innerHeight).length);
-    expect(visible).toBeGreaterThanOrEqual(width > 1000 ? 3 : 1);
+    // The collapsed folders now reveal image strips as well as their tabs.
+    expect(visible).toBeGreaterThanOrEqual(width > 1000 ? 2 : 1);
     expect(await page.locator('.landing-background').evaluate(el => getComputedStyle(el).backgroundImage)).toContain('background%20image.png');
     expect(await page.locator('.hero-design').evaluate(el => getComputedStyle(el).fontFamily)).toContain('Instrument Serif');
     expect(await page.locator('.hero-build').evaluate(el => getComputedStyle(el).fontFamily)).toContain('Manrope');

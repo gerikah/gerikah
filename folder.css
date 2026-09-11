@@ -30,28 +30,41 @@
 .hero-footnote a { min-width:175px; }
 .portfolio-index { width:min(calc(100% - var(--gutter)*2),1760px); margin:-14px auto 0; padding:0 0 64px; scroll-margin-top:94px; }
 .portfolio-index-heading { display:flex; justify-content:space-between; gap:20px; padding:14px 0 20px; border-top:1px solid #bac8bd40; color:#c5cec6; }
-.folder-stack { position:relative; padding-top:8px; overflow-anchor:none; }
-.folder-sheet { --sheet:#101313; --sheet-text:#f1f2ec; position:relative; isolation:isolate; scroll-margin-top:94px; margin-top:-10px; }
+.folder-stack { position:relative; isolation:isolate; padding-top:8px; overflow-anchor:none; --tab-height:62px; --peek-height:clamp(54px,4.5vw,76px); }
+.folder-sheet { --sheet:#101313; --sheet-text:#f1f2ec; --tab-width:32%; --overlap:var(--tab-height); position:relative; isolation:isolate; scroll-margin-top:94px; margin-top:calc(-1 * var(--overlap)); }
 .folder-sheet:first-child { margin-top:0; }
-.folder-about { --sheet:#f1f2ec; --sheet-text:#202622; }
-.folder-contact { --sheet:#9da7a5; --sheet-text:#17201c; }
-.folder-heading { position:relative; margin:0; height:62px; font:600 16px/1.35 'Manrope',sans-serif; }
-.folder-tab { position:relative; display:flex; align-items:center; gap:15px; width:36%; height:100%; padding:14px 23px; margin-left:calc(var(--tab-slot)*32%); background:var(--sheet); color:var(--sheet-text); font:inherit; text-align:left; border-radius:12px 12px 0 0; border:1px solid #636b65; border-bottom:0; }
-.folder-tab::after { content:''; position:absolute; inset:auto 0 -6px; height:8px; background:var(--sheet); z-index:2; }
+.folder-about { --sheet:#f1f2ec; --sheet-text:#202622; --tab-width:30%; }
+.folder-contact { --sheet:#9da7a5; --sheet-text:#17201c; --tab-width:27%; }
+#gcs { --tab-width:39%; --peek-position:center 36%; }
+#off-the-rack { --tab-width:34%; --peek-position:center 68%; }
+#riftbound { --tab-width:29%; --peek-position:center 52%; }
+#flowcharts-process-mapping { --tab-width:43%; --peek-position:center 52%; }
+#marci-metzger-homes { --tab-width:38%; --peek-position:center 37%; }
+.folder-heading { position:relative; z-index:2; margin:0; height:var(--tab-height); font:600 16px/1.35 'Manrope',sans-serif; }
+.folder-tab { position:relative; display:flex; align-items:center; gap:16px; width:var(--tab-width); height:100%; padding:14px 24px; margin-left:calc(var(--tab-slot) * (100% - var(--tab-width)) / 2); background:var(--sheet); color:var(--sheet-text); font:inherit; text-align:left; border-radius:10px 10px 0 0; border:1px solid #636b65; border-bottom:0; }
+/* The short bridge hides the body's top edge beneath the tab. The curved
+   shoulders meet that edge without adding another outlined rectangle. */
+.folder-tab::after { content:''; position:absolute; inset:auto 0 -8px; height:10px; background:var(--sheet); z-index:2; }
+.folder-tab::before { content:''; position:absolute; inset:auto -9px -1px; height:9px; background:radial-gradient(circle at 0 0,transparent 8px,#636b65 8px 9px,var(--sheet) 9px) left / 9px 9px no-repeat,radial-gradient(circle at 100% 0,transparent 8px,#636b65 8px 9px,var(--sheet) 9px) right / 9px 9px no-repeat; }
+.folder-about .folder-tab::before,#riftbound .folder-tab::before,.folder-contact .folder-tab::before { left:0; background:radial-gradient(circle at 100% 0,transparent 8px,#636b65 8px 9px,var(--sheet) 9px) right / 9px 9px no-repeat; }
+#gcs .folder-tab::before,#flowcharts-process-mapping .folder-tab::before { right:0; background:radial-gradient(circle at 0 0,transparent 8px,#636b65 8px 9px,var(--sheet) 9px) left / 9px 9px no-repeat; }
 .folder-tab:focus-visible { z-index:5; outline-offset:-5px; }
-.tab-number { font:400 10px/1 'DM Mono',monospace; opacity:.65; align-self:center; }
+.tab-number { font:400 10px/1 'DM Mono',monospace; color:#a4b7a6; align-self:center; }
+.folder-about .tab-number,.folder-contact .tab-number { color:#526258; }
 .tab-label { flex:1; min-width:0; }
 .folder-toggle { font:400 24px/1 'Manrope',sans-serif; flex:none; }
-.folder-surface { position:relative; background:var(--sheet); border:1px solid #636b65; border-radius:2px 2px 0 0; color:var(--sheet-text); }
+.folder-surface { position:relative; background:var(--sheet); border:1px solid #636b65; border-radius:3px 3px 0 0; color:var(--sheet-text); box-shadow:0 -3px 7px #00000012; }
+.folder-peek { position:relative; overflow:hidden; }
+.folder-peek-content { position:relative; height:calc(var(--peek-height) + var(--overlap)); border-top:10px solid var(--sheet); overflow:hidden; }
+.folder-peek img { display:block; width:100%; height:100%; object-fit:cover; object-position:var(--peek-position,center); }
+.folder-about .folder-peek img { width:auto; height:calc(var(--peek-height) - 14px); margin:2px auto 0; object-fit:contain; }
+.folder-contact .folder-peek-content { height:calc(var(--peek-height) + 16px); }
+.contact-peek-type { display:block; padding-inline:24px; white-space:nowrap; font:400 clamp(64px,8vw,124px)/.95 'Instrument Serif',Georgia,serif; letter-spacing:-.035em; }
+/* Reserve the paper covered by the following tab, below the open controls. */
+.folder-sheet.is-open:not(:last-child) .folder-surface::after { content:''; display:block; height:var(--overlap); }
+.folder-contact.is-open .folder-surface::after { content:''; display:block; height:32px; }
 .folder-clip,.full-study { overflow:hidden; }
 .folder-content { padding:clamp(28px,4.4vw,70px); min-width:0; overflow-wrap:break-word; }
-.folder-spine { min-height:32px; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:9px 23px; font:400 9px/1.5 'DM Mono',monospace; letter-spacing:.07em; color:#b5c0b7; }
-.spine-category { text-align:right; }
-.folder-about .folder-spine,.folder-contact .folder-spine { color:#39443d; }
-.folder-sheet.is-open .folder-spine { border-top:1px solid #515854; }
-.folder-about.is-open .folder-spine,.folder-contact.is-open .folder-spine { border-color:#9da79e; }
-/* Extend each paper sheet behind the following raised tab, in its original order. */
-.folder-sheet:not(:last-child)::before { content:''; position:absolute; top:62px; bottom:-62px; left:0; right:0; z-index:-1; background:var(--sheet); border-inline:1px solid #636b65; }
 .close-file { display:block; margin:32px 0 0 auto; min-height:44px; padding:12px 0; border-bottom:1px solid currentColor; background:none; color:inherit; }
 .folder-content h3 { font:400 clamp(52px,6.5vw,100px)/.97 'Instrument Serif',Georgia,serif; letter-spacing:-.025em; margin:20px 0; }
 .project-sheet-heading .file-label { color:#a9b7ac; }
@@ -105,9 +118,10 @@
 .folder-about a:hover,.folder-contact a:hover { color:#3c5543; }
 .folder-about :focus-visible,.folder-contact :focus-visible { outline-color:#405947; }
 @media(max-width:1000px) {
-  .folder-heading { height:68px; font-size:14px; }
-  .folder-tab { width:43%; margin-left:calc(var(--tab-slot)*28.5%); padding-inline:18px; gap:12px; }
-  .folder-sheet:not(:last-child)::before { top:68px; bottom:-68px; }
+  .folder-stack { --tab-height:68px; }
+  .folder-heading { font-size:14px; }
+  .folder-sheet { --responsive-tab-width:calc(26% + var(--tab-width) / 2); }
+  .folder-tab { width:var(--responsive-tab-width); margin-left:calc(var(--tab-slot) * (100% - var(--responsive-tab-width)) / 2); padding-inline:18px; gap:12px; }
   .preview-composition { grid-template-columns:minmax(0,1.3fr) minmax(200px,1fr); gap:26px; }
   .profile-layout { gap:35px; }
   .profile-record { grid-template-columns:1fr 1fr; }
@@ -136,14 +150,15 @@
   .portfolio-index { margin-top:-12px; scroll-margin-top:86px; }
   .portfolio-index-heading { padding:14px 0 18px; }
   .portfolio-index-heading .file-label { font-size:8px; }
-  .folder-sheet { margin-top:-7px; scroll-margin-top:86px; }
-  .folder-heading { height:66px; font-size:13px; }
-  .folder-tab { width:86%; margin-left:calc(var(--tab-slot)*7%); padding:12px 15px; gap:12px; border-radius:9px 9px 0 0; }
+  .folder-stack { --tab-height:66px; --peek-height:clamp(42px,12vw,64px); }
+  .folder-sheet { --responsive-tab-width:calc(68% + var(--tab-width) / 2); scroll-margin-top:86px; }
+  .folder-heading { font-size:13px; }
+  .folder-tab { padding:12px 15px; gap:12px; border-radius:9px 9px 0 0; }
   .tab-number { font-size:9px; }
   .folder-toggle { font-size:22px; }
-  .folder-sheet:not(:last-child)::before { top:66px; bottom:-66px; }
-  .folder-spine { min-height:29px; padding:7px 15px; font-size:8px; gap:12px; }
-  .spine-category { max-width:78%; }
+  .folder-peek-content { border-top-width:8px; }
+  #off-the-rack { --peek-position:center 90%; }
+  .contact-peek-type { padding-inline:15px; font-size:64px; }
   .folder-content { padding:28px 22px; }
   .folder-content h3 { font-size:clamp(42px,11.2vw,72px); }
   .project-sheet-subtitle { font-size:15px; }
