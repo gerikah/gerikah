@@ -136,7 +136,7 @@ function Folder({ folder, index, open, full, onToggle, onFull, onClose, onKeys, 
       <motion.button type="button" className="folder-tab" id={`tab-${folder.id}`}
         aria-expanded={open} aria-controls={`panel-${folder.id}`} onClick={onToggle} onKeyDown={onKeys}
         initial={false} whileHover={reduce ? undefined : 'hover'} animate="rest"
-        variants={{ rest: { y: 0, borderColor: '#636b65' }, hover: { y: open ? 0 : -4, borderColor: '#a9b8ae' } }}
+        variants={{ rest: { y: 0, borderColor: '#7c8980' }, hover: { y: open ? 0 : -3, borderColor: '#a9b8ae' } }}
         transition={{ duration: 0.18, ease }}>
         <span className="tab-number" aria-hidden="true">{folder.number}</span>
         <motion.span className="tab-label" variants={{ rest: { x: 0 }, hover: { x: 3 } }}>{folder.label}</motion.span>

@@ -31,7 +31,7 @@
 .portfolio-index { width:min(calc(100% - var(--gutter)*2),1760px); margin:-14px auto 0; padding:0 0 64px; scroll-margin-top:94px; }
 .portfolio-index-heading { display:flex; justify-content:space-between; gap:20px; padding:14px 0 20px; border-top:1px solid #bac8bd40; color:#c5cec6; }
 .folder-stack { position:relative; isolation:isolate; padding-top:8px; overflow-anchor:none; --tab-height:62px; --peek-height:clamp(54px,4.5vw,76px); }
-.folder-sheet { --sheet:#101313; --sheet-text:#f1f2ec; --tab-width:32%; --overlap:var(--tab-height); position:relative; isolation:isolate; scroll-margin-top:94px; margin-top:calc(-1 * var(--overlap)); }
+.folder-sheet { --sheet:#101313; --sheet-text:#f1f2ec; --folder-outline:#7c8980; --tab-width:32%; --overlap:var(--tab-height); position:relative; isolation:isolate; scroll-margin-top:94px; margin-top:calc(-1 * var(--overlap)); }
 .folder-sheet:first-child { margin-top:0; }
 .folder-about { --sheet:#f1f2ec; --sheet-text:#202622; --tab-width:30%; }
 .folder-contact { --sheet:#9da7a5; --sheet-text:#17201c; --tab-width:27%; }
@@ -41,19 +41,20 @@
 #flowcharts-process-mapping { --tab-width:43%; --peek-position:center 52%; }
 #marci-metzger-homes { --tab-width:38%; --peek-position:center 37%; }
 .folder-heading { position:relative; z-index:2; margin:0; height:var(--tab-height); font:600 16px/1.35 'Manrope',sans-serif; }
-.folder-tab { position:relative; display:flex; align-items:center; gap:16px; width:var(--tab-width); height:100%; padding:14px 24px; margin-left:calc(var(--tab-slot) * (100% - var(--tab-width)) / 2); background:var(--sheet); color:var(--sheet-text); font:inherit; text-align:left; border-radius:10px 10px 0 0; border:1px solid #636b65; border-bottom:0; }
+.folder-tab { position:relative; display:flex; align-items:center; gap:16px; width:var(--tab-width); height:100%; padding:14px 24px; margin-left:calc(var(--tab-slot) * (100% - var(--tab-width)) / 2); background:var(--sheet); color:var(--sheet-text); font:inherit; text-align:left; border-radius:10px 10px 0 0; border:2px solid var(--folder-outline); border-bottom:0; }
 /* The short bridge hides the body's top edge beneath the tab. The curved
-   shoulders meet that edge without adding another outlined rectangle. */
-.folder-tab::after { content:''; position:absolute; inset:auto 0 -8px; height:10px; background:var(--sheet); z-index:2; }
-.folder-tab::before { content:''; position:absolute; inset:auto -9px -1px; height:9px; background:radial-gradient(circle at 0 0,transparent 8px,#636b65 8px 9px,var(--sheet) 9px) left / 9px 9px no-repeat,radial-gradient(circle at 100% 0,transparent 8px,#636b65 8px 9px,var(--sheet) 9px) right / 9px 9px no-repeat; }
-.folder-about .folder-tab::before,#riftbound .folder-tab::before,.folder-contact .folder-tab::before { left:0; background:radial-gradient(circle at 100% 0,transparent 8px,#636b65 8px 9px,var(--sheet) 9px) right / 9px 9px no-repeat; }
-#gcs .folder-tab::before,#flowcharts-process-mapping .folder-tab::before { right:0; background:radial-gradient(circle at 0 0,transparent 8px,#636b65 8px 9px,var(--sheet) 9px) left / 9px 9px no-repeat; }
+   shoulders meet that edge without adding another outlined rectangle. Its
+   overlap is deeper than the hover lift, so the tab never separates. */
+.folder-tab::after { content:''; position:absolute; inset:auto 0 -10px; height:14px; background:var(--sheet); z-index:2; }
+.folder-tab::before { content:''; position:absolute; inset:auto -9px -2px; height:11px; background:radial-gradient(circle at 0 0,transparent 7px,var(--folder-outline) 7px 9px,var(--sheet) 9px) left / 9px 9px no-repeat,radial-gradient(circle at 100% 0,transparent 7px,var(--folder-outline) 7px 9px,var(--sheet) 9px) right / 9px 9px no-repeat; }
+.folder-about .folder-tab::before,#riftbound .folder-tab::before,.folder-contact .folder-tab::before { left:0; background:radial-gradient(circle at 100% 0,transparent 7px,var(--folder-outline) 7px 9px,var(--sheet) 9px) right / 9px 9px no-repeat; }
+#gcs .folder-tab::before,#flowcharts-process-mapping .folder-tab::before { right:0; background:radial-gradient(circle at 0 0,transparent 7px,var(--folder-outline) 7px 9px,var(--sheet) 9px) left / 9px 9px no-repeat; }
 .folder-tab:focus-visible { z-index:5; outline-offset:-5px; }
 .tab-number { font:400 10px/1 'DM Mono',monospace; color:#a4b7a6; align-self:center; }
 .folder-about .tab-number,.folder-contact .tab-number { color:#526258; }
 .tab-label { flex:1; min-width:0; }
 .folder-toggle { font:400 24px/1 'Manrope',sans-serif; flex:none; }
-.folder-surface { position:relative; background:var(--sheet); border:1px solid #636b65; border-radius:3px 3px 0 0; color:var(--sheet-text); box-shadow:0 -3px 7px #00000012; }
+.folder-surface { position:relative; background:var(--sheet); border:2px solid var(--folder-outline); border-radius:3px 3px 0 0; color:var(--sheet-text); box-shadow:0 -3px 7px #0000001f; }
 .folder-peek { position:relative; overflow:hidden; }
 .folder-peek-content { position:relative; height:calc(var(--peek-height) + var(--overlap)); border-top:10px solid var(--sheet); overflow:hidden; }
 .folder-peek img { display:block; width:100%; height:100%; object-fit:cover; object-position:var(--peek-position,center); }
