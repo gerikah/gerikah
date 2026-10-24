@@ -10,14 +10,6 @@ I enjoy turning ideas into working products—from planning user flows and desig
 
 ---
 
-### What I work on
-
-- Responsive websites and interactive interfaces
-- Full-stack applications with authentication and database integration
-- UI/UX design, prototypes, and website redesigns
-
----
-
 ### My toolkit
 
 **Languages**
@@ -41,6 +33,14 @@ I enjoy turning ideas into working products—from planning user flows and desig
 ![Codex](https://img.shields.io/badge/Codex-111111?style=for-the-badge&logo=openai&logoColor=white)
 
 I use Codex to support development, debugging, refactoring, and documentation, while reviewing and testing the resulting code.
+
+---
+
+### What I work on
+
+- Responsive websites and interactive interfaces
+- Full-stack applications with authentication and database integration
+- UI/UX design, prototypes, and website redesigns
 
 ---
 
