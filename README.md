@@ -20,17 +20,27 @@ I enjoy turning ideas into working products—from planning user flows and desig
 
 ### My toolkit
 
-**Frontend**
+**Languages**
 
-![HTML, CSS, JavaScript, TypeScript, and React](https://skillicons.dev/icons?i=html,css,js,ts,react&theme=dark)
+![Languages](https://skillicons.dev/icons?i=html,css,js,ts,python&theme=dark)
 
-**Backend & Database**
+**Frameworks & Runtime**
 
-![Node.js, Express, Supabase, PostgreSQL, and MySQL](https://skillicons.dev/icons?i=nodejs,express,supabase,postgres,mysql&theme=dark)
+![Frameworks and runtime](https://skillicons.dev/icons?i=react,nextjs,nodejs&theme=dark)
+
+**Database & Backend Services**
+
+![Database and backend services](https://skillicons.dev/icons?i=supabase,postgres&theme=dark)
 
 **Design & Development Tools**
 
-![Figma, Git, GitHub, VS Code, and Vercel](https://skillicons.dev/icons?i=figma,git,github,vscode,vercel&theme=dark)
+![Design and development tools](https://skillicons.dev/icons?i=figma,git,github,vscode,vercel&theme=dark)
+
+**AI Toolkit**
+
+![Codex](https://img.shields.io/badge/Codex-111111?style=for-the-badge&logo=openai&logoColor=white)
+
+I use Codex to support development, debugging, refactoring, and documentation, while reviewing and testing the resulting code.
 
 ---
 
