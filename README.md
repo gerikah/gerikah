@@ -1,10 +1,10 @@
-# Hi, I’m Gerikah.
+# hello! it's gerikah.
 
-### I design it. Then I build it.
+### i design it. then I build it.
 
-I’m a Computer Engineer, web developer, and UI/UX designer based in Manila, Philippines.
+i’m a Computer Engineer, web developer, and UI/UX designer based in Manila, Philippines.
 
-I enjoy turning ideas into working products—from planning user flows and designing interfaces in Figma to building applications, connecting databases, and deploying them.
+i enjoy turning ideas into working products—from planning user flows and designing interfaces in Figma to building applications, connecting databases, and deploying them.
 
 [Explore my portfolio →](https://gerikah.vercel.app/)
 
