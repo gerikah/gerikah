@@ -1,4 +1,4 @@
-# hello! it's gerikah.
+# hello! i am gerikah.
 
 ### i design it. then I build it.
 
