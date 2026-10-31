@@ -22,7 +22,7 @@ A responsive e-commerce platform with product management, authentication, image 
 
 [Live site](https://offtherack.vercel.app/) · [Source code](https://github.com/gerikah/Off-The-Rack)
 
-**03 / Ground Control Station**
+**02 / Ground Control Station**
 
 A drone monitoring interface focused on operational visibility, mission information, and presenting complex data through structured, user-centered interfaces.
 
