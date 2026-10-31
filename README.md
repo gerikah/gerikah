@@ -22,14 +22,6 @@ A responsive e-commerce platform with product management, authentication, image 
 
 [Live site](https://offtherack.vercel.app/) · [Source code](https://github.com/gerikah/Off-The-Rack)
 
-**02 / LeadScout**
-
-A lead discovery and management application featuring business search, website auditing, lead scoring, status tracking, and CSV exports.
-
-`React` · `Node.js` · `Express` · `REST APIs`
-
-[Live site](https://lead-scout-beta-rosy.vercel.app/) · [Source code](https://github.com/gerikah/LeadScout)
-
 **03 / Ground Control Station**
 
 A drone monitoring interface focused on operational visibility, mission information, and presenting complex data through structured, user-centered interfaces.
